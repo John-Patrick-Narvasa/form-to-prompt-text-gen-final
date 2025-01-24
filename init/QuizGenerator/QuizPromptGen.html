@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz/Exercise Prompt Generator</title>
+    <link rel="stylesheet" href="Styles.css">
+    <script src="script.js"></script>
+    
+</head>
+<body>
+    <h1>Form to Text Prompt Generator</h1>
+    <p id="timer">Timer</p>    
+    <hr>
+    
+    <input type = "checkbox" id="darkModeToggle">Toggle Dark Mode</input><br>
+
+    
+    <form id="promptForm">
+        <button onclick="startTimer()">Start timer</button>
+        <button onclick="saveInputs()">Save Form Inputs?</button>
+        <table>
+            <tr>
+                <td>Topic/s:</td>
+                <td><input type="text" name="topic" required></td>
+            </tr>
+            <tr>
+                <td>Coverages:</td>
+                <td><input type="text" name="coverages" required></td>
+            </tr>
+            <tr>
+                <td>Difficulty:</td>
+                <td>
+                    <select name="difficulty" required>
+                        <option value="Easy">Easy</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Hard">Hard</option>
+                        <option value="Insane">Insane</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Number of Items:</td>
+                <td><input type="number" name="items" required min="1"></td>
+            </tr>
+            <tr>
+                <td>Test types (at least 2):</td>
+                <td>
+                    <b>Basic</b><br>
+                    <input type="checkbox" name="testStyles" value="Multiple Choice">Multiple Choice<br>
+                    <input type="checkbox" name="testStyles" value="Matching Type">Matching Type<br>
+                    <input type="checkbox" name="testStyles" value="Fill in the Blanks">Fill in the Blanks<br>
+                    <input type="checkbox" name="testStyles" value="Short Answer">Short Answer<br>
+                    <input type="checkbox" name="testStyles" value="True or False">True or False<br>
+                    <br>
+                    <b>Problem Solving</b><br>
+                    <input type="checkbox" name="testStyles" value="Problem Solving">Problem Solving<br>
+                    <input type="checkbox" name="testStyles" value="Daily Life Situations">Daily Life Situations<br>
+                    <input type="checkbox" name="testStyles" value="Conversion">Conversion<br>
+                    <br>
+                    <b>Programming</b><br> 
+                    <input type="checkbox" name="testStyles" value="Code Simulation">Code Simulation<br>
+                    <input type="checkbox" name="testStyles" value="Code Reading">Code Reading<br>
+                    <input type="checkbox" name="testStyles" value="Program Enhancement and Debugging">Program Enhancement and Debugging<br>
+                    <input type="checkbox" name="testStyles" value="Exercise/App or Program Building">Exercise/App or Program Building
+                </td>
+            </tr>
+            <tr>
+                <td>Conditions:</td>
+                <td><input type="text" name="conditions"></td>
+            </tr>
+
+            <tr>
+                <td>Desired Output (Optional paste):</td>
+                <td><input type="text" name="output"></td>
+            </tr>
+
+            <tr>
+                <td>Time Limit (in minutes):</td>
+                <td><input type="number" name="timeLimit" required min="1"></td>
+            </tr>
+
+            <tr>
+                <td><button id="">reset</button></td>
+            </tr>
+        </table>
+        <br>
+    
+    </form>
+    
+    <input type="button" value="Generate Prompt" onclick="generatePrompt()">
+
+    <p><b>OUTPUT:</b></p>
+    <div id="output"></div>
+
+    <button onclick="copyOutput(), setTimer()" >Copy text</button>
+
+    <h2 id="time"></h2>
+    
+    <script>
+        document.getElementById('darkModeToggle').addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+    });
+
+    function saveInputs() {
+        
+    }
+
+    function generatePrompt() {
+        const form = document.getElementById('promptForm');
+        const topic = form.topic.value;
+        const coverages = form.coverages.value;
+        const difficulty = form.difficulty.value;
+        const items = form.items.value;
+        const testStyles = Array.from(form.testStyles).filter(el => el.checked).map(el => el.value).join(', ');
+        const conditions = form.conditions.value;
+        const desired_output = form.output.value;
+        const timeLimit = form.timeLimit.value;
+
+        if (testStyles.split(', ').length < 2) {
+            alert('Please select at least two test types.');
+            return;
+        }
+
+        const output = `
+    Hello, I want you to follow the subject, coverage, and prompt mentioned below:
+
+    Topic: ${topic}
+    Coverages: ${coverages}
+    Difficulty: ${difficulty}
+    Number of Items: ${items}
+
+    Test type/s: ${testStyles}
+
+    Conditions: ${conditions}
+
+    Desired Output: ${desired_output}
+    
+
+    *If output too big for you to finish it, tell me and I will say to continue it after your output*
+    *Put the answers at the very bottom*
+        `.trim();
+
+        document.getElementById('output').textContent = output;
+        
+    }
+
+    function copyOutput() {
+        var copyText = document.getElementById("output");
+
+        navigator.clipboard.writeText(copyText.textContent);
+
+        alert("Copied the text :) ");
+        setTime();
+    }
+
+    function setTimer() {
+    const startingMinutes = form.timeLimit.value;
+    let time = startingMinutes * 60;
+
+    const countdownEl = document.getElementById('timer');
+
+    setInterval(updateCountdown, 1000); 
+
+    function updateCountdown () {
+        const minutes = Math.floor(time/60);
+        let seconds = time % 60;
+        let milliseconds = time % 1000;
+
+        seconds = seconds < 10 ? `0${seconds}` : seconds;   
+
+        countdownEl.innerHTML = `${minutes}: ${seconds}`;
+        time--;
+        time = time < 0 ? 0 : time; 
+        }
+  }
+
+  function saveInputs() {
+    const topic = form.topic.value;
+    const coverages = form.coverages.value;
+    const difficulty = form.difficulty.value;
+    const items = form.items.value;
+    const testStyles = Array.from(form.testStyles).filter(el => el.checked).map(el => el.value).join(', ');
+    const conditions = form.conditions.value;
+    const desired_output = form.output.value;
+
+    localStorage.setItem('topic', topic);
+    localStorage.setItem('coverages', coverages);
+    localStorage.setItem('difficulty', difficulty);
+    localStorage.setItem('items', items);
+  }
+
+    </script>
+</body>
+</html>

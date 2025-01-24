@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.saved-forms-container {
+    width: 30%; /* Set width for saved forms */
+    padding: 20px;
+    border-right: 1px solid #ccc; /* Optional border for separation */
+    overflow-y: auto; /* Allow scrolling if content overflows */
+}
+
+.form-creator-container {
+    width: 70%; /* Set width for form creator */
+    padding: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 15px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.input-wrapper {
+    margin: 10px 0;
+}
+
+.description {
+    display: block;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #555;
+}
+
+.saved-form-item {
+    margin-bottom: 10px;
+}
+
+.saved-form-item button {
+    margin-left: 5px;
+}

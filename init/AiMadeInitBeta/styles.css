@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+}
+
+input, select, button {
+    margin: 10px 0;
+    padding: 8px;
+    width: calc(100% - 16px);
+}
+
+h2 {
+    margin-top: 20px;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.input-wrapper button {
+    margin-left: 10px;
+}
+
+.saved-form-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

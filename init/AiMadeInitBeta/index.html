@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Creator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Form Creator</h1>
+        <div id="warningMessage" style="color: red; display: none;"></div>
+        <input type="text" id="formTitle" placeholder="Form Title">
+        <select id="inputType">
+            <option value="text">Text</option>
+            <option value="number">Number</option>
+            <option value="email">Email</option>
+            <option value="textarea">Textarea</option>
+            <option value="checkbox">Checkbox</option>
+            <option value="radio">Radio</option>
+        </select>
+        <input type="text" id="optionsInput" placeholder="Options (comma separated)" style="display:none;">
+        <input type="text" id="descriptionInput" placeholder="Description">
+        <button id="addInput">Add Input</button>
+        <button id="changeInput" style="display: none;">Change</button>
+        <button id="deselectInput" style="display: none;">Deselect</button>
+        
+        <h2>Your Form:</h2>
+        <form id="dynamicForm"></form>
+        <button id="saveForm">Save Form</button>
+
+        <h2>Saved Forms:</h2>
+        <div id="templateContainer"></div>
+        <ul id="savedForms"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

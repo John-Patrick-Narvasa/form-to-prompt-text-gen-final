@@ -1,0 +1,43 @@
+Duration: Good for 2 weeks of work
+
+# Prompt: 
+
+im in college and I have to maintain these following responsibilities:
+
+Education (in terms of organization of tasks, planning, strategizers, logical frameworks, advance learning)
+Leisure (Ideas, Journaling)
+Environment (in terms of geography, social connections, infos)
+Expenses and Finances (basic needs, travel, bills, contingencies)
+Health (in terms of mental (motivations, reasonings), physical, routine
+Privacy and Security (physical and virtual spaces)
+
+Smaller Goal:
+- Scripting Automation (google sheets, telegram)
+- Quiz Generator (supports any word files)
+- Coding Exercises and Problem Generator (Leetcode type format)
+
+Main goal (grand goal):
+- Virtual Second Brain 
+
+
+
+
+what are useful projects that if built I can use it in my daily life in order to learn the following (from easy to harder difficulties step by step):
+
+Databases
+DSA
+OOP
+NLP
+Front end WebDev
+APIs
+AI integration
+WebScraping
+Scripting Automation
+
+# Structure
+
+Watch Resource about topic 1
+Practice Topic 1
+Proceed Project 1
+
+And so on 

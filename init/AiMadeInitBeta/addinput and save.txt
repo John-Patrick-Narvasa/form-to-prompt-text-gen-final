@@ -1,0 +1,48 @@
+make the following templates using these structures:
+
+Quiz structure: 
+    Topic (text)
+    Specific coverages (text)
+    Difficulty (select)
+        Easy, Medium, Hard, Confusing?
+    Number of Items (number)
+        Min=10 Max=50
+
+    Test Style/s (checkbox)
+        Choices: 
+            Basic
+                Multiple Choice
+                Matching Type
+                Fill in the Blanks
+                Short Answer
+                True or False
+            Problem Solving
+                Problem Solving
+                Daily Life Situations
+                Conversion
+            Programming
+                Code Simulation
+                Code Reading
+                Program Enhancement and Debugging
+                Exercise/App or Program Building
+    Conditions (text area)
+        placeholder: With edge cases, random programs codes that are challenging to read(poorly written code (variable names, arrangements, etc.))
+    Desired Output (optional paste) *(text area)*
+    Time Limit (in minutes) *(number)*
+
+
+Programming exercise structure:  
+
+    Topic (text)
+    Specific coverages (text)
+    Difficulty (select)
+        Easy, Medium, Hard, Confusing?
+    Number of Items (number)
+        Min=10 Max=50
+
+    Test Style/s (checkbox)
+        
+    Conditions (text area)
+        placeholder: With edge cases, random programs codes that are challenging to read(poorly written code (variable names, arrangements, etc.))
+    Desired Output (optional paste) *(text area)*
+    Time Limit (in minutes) *(number)*

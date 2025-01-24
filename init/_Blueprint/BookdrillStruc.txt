@@ -1,0 +1,112 @@
+
+
+
+OUTPUT: 
+**Konteksto** (feed example info, do not use it in the actual output):
+
+  
+
+Hello! Gusto kong sundin mo ang paksa, saklaw, at prompt na binanggit sa ibaba, at sundin ang gimik para sa paksa sa kabuuan ng pagsusulit. Narito ang mga panuto para sa mga Test/Quiz styles:
+
+  
+
+**Titulo**: *Ilagay ang iyong halimbawa ng titulo para sa pagsusulit batay sa paksa.*
+
+  
+
+**Paksa**: *Ilagay ang pangalan ng paksa.*
+
+  
+
+**Gimik**: *I-highlight ang isang tiyak na gimmick na nakabatay sa mga sikat o pamilyar na kwentong Pilipino at kasabihan.*
+
+  
+
+**Saklaw** (feed example info): *Ilagay ang tiyak na paksa o HTML link.*
+
+  
+
+---
+
+  
+
+### Kondisyon:
+
+  
+
+- **Antas**: Para sa mga estudyanteng nasa Grade 10 sa Filipino subject.
+
+- **Wika**: Gumamit ng simpleng bokabularyo na madaling maunawaan ng mga Grade 10 na mga estudyante.
+
+- **Repetitiveness**: Iwasan ang pag-uulit ng mga tanong sa buong pagsusulit.
+
+- **Interactivity**: Gawing nakaka-engganyo at may kinalaman sa mga bata sa taong ito (2024) at sa topic mismo.
+
+- **Mga Instruksyon**: Magbigay ng mga panuto na may kaunting twist (halimbawa: *sa halip na "tama o mali," gumamit ng thumbs up o down, check o x, atbp.*).
+
+- **Karagdagang Nilalaman**: Mag-utos na maglagay ng mga larawan o iba pang nilalaman na kinakailangan para sa uri ng pagsusulit na ginawa.
+
+- **Istraktura** - Dapat ay may unti-unting pagtaas ng kahirapan (difficulty of quiz)
+
+  
+
+---
+
+  
+
+**Prompt User/tester**: 
+
+- Ilagay ang isang kwento o balangkas ng kwento. (based on popular external source literatures relevant to the lesson)
+
+  
+
+- Maglagay ng mga larawan (kung kinakailangan sa aralin).
+
+  
+
+---
+
+  
+
+### Bilang ng mga Item:
+
+- **Dapat**: 20 na mga item bawat uri ng pagsusulit.
+
+  
+
+### Uri ng Pagsusulit:
+
+- **Dapat (Structure, X items each)**::
+
+  - Multiple choice (kasama ang odd ones out, sentence choices, atbp.)
+
+  - Tama o mali (mga halimbawa ng pangungusap, atbp.)
+
+  - Matching type
+
+  - Fill in the blanks (may o walang mga pagpipilian)
+
+  - Underline the answer
+
+- Test types that uses pictures (insert a picture of…) (optional if necessary) (according to the prompt user part)
+  
+
+---
+
+  
+
+**Tiyakin na**: Maglagay ng answer key sa ibaba ng pagsusulit.
+
+
+  
+
+---
+
+magsimula muna sa bahagi 1, i will tell you when to transition to the next test number
+  
+
+Burahin lahat contents to make my own unique content
+
+  
+
+And insert bibliography for references and sources
