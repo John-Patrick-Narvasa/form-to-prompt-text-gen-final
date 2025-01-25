@@ -560,6 +560,8 @@ function addTemplateButtons() {
     document.getElementById('templateContainer').appendChild(programmingButton);
 }
 
+
+// For generating prompt text
 function generatePrompt() {
     const formTitle = document.getElementById('formTitle').value;
     
@@ -610,6 +612,7 @@ function copyOutput() {
     });
 }
 
+// Show/hide saved templates
 document.getElementById('toggleButton').addEventListener('click', function() {
     const sidebar = document.getElementById('sidebar');
     if (sidebar.style.display === 'none' || sidebar.style.display === '') {
