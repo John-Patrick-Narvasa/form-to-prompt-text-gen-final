@@ -86,7 +86,7 @@ document.getElementById('addInput').addEventListener('click', function() {
         // Update the input type and description
         inputs.forEach(input => {
             input.type = inputType; // Change the input type
-            input.placeholder = `${inputType.charAt(0).toUpperCase() + inputType.slice(1)} Input`;
+            input.placeholder = description; // Set placeholder to description
         });
         descElement.innerText = description; // Update the description
 
@@ -100,7 +100,7 @@ document.getElementById('addInput').addEventListener('click', function() {
         let inputElement;
         if (inputType === 'textarea') {
             inputElement = document.createElement('textarea');
-            inputElement.placeholder = 'Textarea Input';
+            inputElement.placeholder = description; // Set placeholder to description
         } else if (inputType === 'checkbox' || inputType === 'radio') {
             options.forEach(option => {
                 const label = document.createElement('label');
@@ -123,7 +123,7 @@ document.getElementById('addInput').addEventListener('click', function() {
         } else {
             inputElement = document.createElement('input');
             inputElement.type = inputType;
-            inputElement.placeholder = `${inputType.charAt(0).toUpperCase() + inputType.slice(1)} Input`;
+            inputElement.placeholder = description; // Set placeholder to description
 
             const descElement = document.createElement('span');
             descElement.className = 'description';
