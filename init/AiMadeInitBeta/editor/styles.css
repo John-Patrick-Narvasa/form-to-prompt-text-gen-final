@@ -1,0 +1,109 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #121212; /* Dark background */
+    color: #ffffff; /* Light text color */
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    background-color: #1e1e1e; /* Slightly lighter dark background for the container */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners for aesthetics */
+}
+
+h1, h2 {
+    color: #ffffff; /* Keep headings white */
+}
+
+#toggleButton {
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    border: none;
+    background-color: #007BFF; /* Button color */
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#toggleButton:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+.main-container {
+    display: flex;
+}
+
+.sidebar {
+    width: 30%;
+    padding-right: 20px;
+    border-right: 1px solid #444; /* Darker border for separation */
+    box-sizing: border-box;
+}
+
+.main-content {
+    width: 70%;
+    box-sizing: border-box;
+}
+
+input, select, button {
+    margin: 10px 0;
+    padding: 8px;
+    width: calc(100% - 16px);
+    background-color: #333; /* Dark input background */
+    color: #ffffff; /* Light text color for inputs */
+    border: 1px solid #555; /* Lighter border for inputs */
+    border-radius: 4px; /* Rounded corners for inputs */
+}
+
+input::placeholder {
+    color: #bbb; /* Light gray placeholder text */
+}
+
+#output {
+    border: 1px solid #444; /* Dark border for output area */
+    background-color: #222; /* Dark background for output */
+    padding: 10px;
+    border-radius: 4px; /* Rounded corners */
+}
+
+button {
+    background-color: #007BFF; /* Button color */
+    color: white;
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+h2 {
+    margin-top: 20px;
+}
+
+
+.button-container {
+    display: flex; /* Use flexbox for horizontal alignment */
+    gap: 10px; /* Space between buttons */
+    margin-top: 20px; /* Add some margin above the container */
+}
+
+.button-container button {
+    flex: 1; /* Make buttons take equal space */
+    padding: 10px; /* Add padding for better click area */
+    background-color: #007BFF; /* Button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transition for hover effect */
+}
+
+.button-container button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+
+

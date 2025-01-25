@@ -1,3 +1,5 @@
+
+
 document.getElementById('inputType').addEventListener('change', function() {
     const inputType = this.value;
     const optionsInput = document.getElementById('optionsInput');
@@ -6,21 +8,19 @@ document.getElementById('inputType').addEventListener('change', function() {
 
 let currentEditingWrapper = null; // To keep track of the currently editing input
 
-// Function to show warning messages
+
 function showWarning(message) {
     const warningElement = document.getElementById('warningMessage');
     warningElement.innerText = message;
     warningElement.style.display = 'block';
 }
 
-// Function to hide warning messages
 function hideWarning() {
     const warningElement = document.getElementById('warningMessage');
     warningElement.innerText = '';
     warningElement.style.display = 'none';
 }
 
-// Update button text and Deselect button visibility based on editing state
 function updateUI(isEditing) {
     const addInputButton = document.getElementById('addInput');
     const deselectButton = document.getElementById('deselectInput');
@@ -29,7 +29,6 @@ function updateUI(isEditing) {
     deselectButton.style.display = isEditing ? 'inline-block' : 'none'; // Show or hide Deselect button
 }
 
-// Deselect function to reset the form
 function deselectInput() {
     currentEditingWrapper = null; // Clear the current editing state
     updateUI(false); // Reset button text and hide Deselect button
@@ -140,12 +139,11 @@ document.getElementById('addInput').addEventListener('click', function() {
 
     // Clear input fields after adding or changing
     document.getElementById('descriptionInput').value = '';
-    document.getElementById('inputType').value = 'text'; // Reset to default
-    document.getElementById('optionsInput').value = ''; // Clear options
+    document.getElementById('inputType').value = 'text'; 
+    document.getElementById('optionsInput').value = ''; 
     document.getElementById('optionsInput').style.display = 'none';
 });
 
-// Function to create a delete button
 function createDeleteButton(wrapper) {
     const deleteButton = document.createElement('button');
     deleteButton.innerText = 'Delete';
@@ -156,7 +154,6 @@ function createDeleteButton(wrapper) {
     return deleteButton;
 }
 
-// Function to enable editing an existing input
 function enableEditing(wrapper) {
     const inputs = wrapper.querySelectorAll('input, textarea');
     const descElement = wrapper.querySelector('.description');
@@ -183,7 +180,6 @@ function enableEditing(wrapper) {
     updateUI(true); // Change button to Change Input and show Deselect button
 }
 
-// Add click listener to each new input for editing
 function addEditListener(wrapper) {
     wrapper.addEventListener('click', function() {
         enableEditing(wrapper);
@@ -205,7 +201,6 @@ document.getElementById('saveForm').addEventListener('click', function() {
         })
         .filter(input => input !== null);
 
-    // Validation check for title
     if (!title) {
         showWarning("Please enter a title for the form.");
         return;
@@ -213,16 +208,13 @@ document.getElementById('saveForm').addEventListener('click', function() {
 
     const savedForms = JSON.parse(localStorage.getItem('savedForms')) || [];
     
-    // Check for existing title
     const existingForm = savedForms.find(form => form.title === title);
     if (existingForm) {
         const overwrite = confirm(`A form with the title "${title}" already exists. Do you want to overwrite it?`);
         if (overwrite) {
-            // Overwrite the existing form
             const index = savedForms.indexOf(existingForm);
             savedForms[index] = { title: title, inputs: inputs };
         } else {
-            // Automatically rename to "name(1)" format
             let newTitle = title;
             let counter = 1;
             while (savedForms.some(form => form.title === newTitle)) {
@@ -238,7 +230,7 @@ document.getElementById('saveForm').addEventListener('click', function() {
 
     localStorage.setItem('savedForms', JSON.stringify(savedForms));
     displaySavedForms();
-    hideWarning(); // Hide warning on successful save
+    hideWarning();
 });
 
 function displaySavedForms() {
@@ -289,7 +281,7 @@ function loadForm(form) {
             inputElement.placeholder = 'Textarea Input';
         } else if (input.type === 'checkbox' || input.type === 'radio') {
             const wrapper = document.createElement('div');
-            const options = input.placeholder.split(','); // Assuming placeholder has options
+            const options = input.placeholder.split(','); 
             options.forEach(option => {
                 const label = document.createElement('label');
                 const inputEl = document.createElement('input');
@@ -336,7 +328,7 @@ function loadForm(form) {
     document.getElementById('formTitle').value = form.title;
 }
 
-// Sample pre-made form template
+//config
 const sampleTemplate = {
     title: "Sample Form",
     inputs: [
@@ -350,15 +342,15 @@ const sampleTemplate = {
 const quizTemplate = {
     title: "Quiz Template",
     inputs: [
-        { type: "text", placeholder: "Enter the topic", description: "Topic" },
-        { type: "text", placeholder: "Enter specific coverages", description: "Specific Coverages" },
+        { type: "text", placeholder: "Topic ", description: "Topic" },
+        { type: "text", placeholder: "Specific Coverages ", description: "Specific Coverages" },
         {
             type: "select", 
-            placeholder: "Select difficulty", 
+            placeholder: "Difficulty ", 
             options: ["Easy", "Medium", "Hard", "Confusing?"], 
             description: "Difficulty"
         },
-        { type: "number", placeholder: "Enter number of items (10-50)", description: "Number of Items (10-50)" },
+        { type: "number", placeholder: "Number of Items ", description: "Number of Items (10-50)" },
         {
             type: "checkbox", 
             placeholder: "Select test styles", 
@@ -371,12 +363,12 @@ const quizTemplate = {
         },
         {
             type: "textarea", 
-            placeholder: "With edge cases, random programs codes that are challenging to read (poorly written code)", 
+            placeholder: "Conditions", 
             description: "Conditions"
         },
         {
             type: "textarea", 
-            placeholder: "Optional paste (desired output)", 
+            placeholder: "Desired Output", 
             description: "Desired Output (optional)"
         },
         { type: "number", placeholder: "Enter time limit in minutes", description: "Time Limit (in minutes)" }
@@ -396,25 +388,25 @@ const programmingExerciseTemplate = {
         { type: "number", placeholder: "Enter number of items (10-50)", description: "Number of Items (10-50)" },
         {
             type: "checkbox", 
-            placeholder: "Select test styles", 
+            placeholder: "Test Types: ", 
             options: [
                 "Multiple Choice", "Matching Type", "Fill in the Blanks", "Short Answer", "True or False",
                 "Problem Solving", "Daily Life Situations", "Conversion",
                 "Code Simulation", "Code Reading", "Program Enhancement and Debugging", "Exercise/App or Program Building"
             ],
-            description: "Test Style/s"
+            description: "Test -Type/s"
         },
         {
             type: "textarea", 
-            placeholder: "With edge cases, random programs codes that are challenging to read (poorly written code)", 
+            placeholder: "Conditions: ", 
             description: "Conditions"
         },
         {
             type: "textarea", 
-            placeholder: "Optional paste (desired output)", 
+            placeholder: "Desired Output (optional): ", 
             description: "Desired Output (optional)"
         },
-        { type: "number", placeholder: "Enter time limit in minutes", description: "Time Limit (in minutes)" }
+        { type: "number", placeholder: "Time Limit (in minutes): ", description: "Time Limit (in minutes)" }
     ]
 };
 
@@ -435,58 +427,125 @@ function saveTemplates() {
 }
 
 
-function loadTemplate(title) {
-    const template = title === "Quiz Template" ? quizTemplate : programmingExerciseTemplate;
+function saveCurrentFormAsTemplate() {
     const dynamicForm = document.getElementById('dynamicForm');
-    dynamicForm.innerHTML = '';
-    
-    template.inputs.forEach(input => {
-        let inputElement;
-        if (input.type === 'textarea') {
-            inputElement = document.createElement('textarea');
-            inputElement.placeholder = input.placeholder;
-        } else if (input.type === 'select') {
-            inputElement = document.createElement('select');
-            input.options.forEach(option => {
-                const opt = document.createElement('option');
-                opt.value = option;
-                opt.innerText = option;
-                inputElement.appendChild(opt);
-            });
-        } else if (input.type === 'checkbox') {
-            const wrapper = document.createElement('div');
-            input.options.forEach(option => {
-                const label = document.createElement('label');
-                const checkbox = document.createElement('input');
-                checkbox.type = 'checkbox';
-                checkbox.value = option;
-                label.appendChild(checkbox);
-                label.appendChild(document.createTextNode(option));
-                wrapper.appendChild(label);
-            });
-            dynamicForm.appendChild(wrapper);
-            return; // Skip other elements for this input type
-        } else {
-            inputElement = document.createElement('input');
-            inputElement.type = input.type;
-            inputElement.placeholder = input.placeholder;
-        }
+    const title = document.getElementById('formTitle').value;
+    const inputs = Array.from(dynamicForm.children).map(child => {
+        const input = child.querySelector('input, textarea, select');
+        const descElement = child.querySelector('.description');
 
-        const wrapper = document.createElement('div');
-        wrapper.className = 'input-wrapper';
-
-        const descElement = document.createElement('span');
-        descElement.className = 'description';
-        descElement.innerText = input.description;
-
-        wrapper.appendChild(descElement);
-        wrapper.appendChild(inputElement);
-        dynamicForm.appendChild(wrapper);
+        return {
+            type: input.type || 'textarea',
+            placeholder: input.placeholder,
+            options: input.options ? Array.from(input.options).map(option => option.value) : [],
+            description: descElement.innerText
+        };
     });
 
-    document.getElementById('formTitle').value = template.title;
+    const newTemplate = {
+        title: title || "Untitled Template",
+        inputs: inputs
+    };
+
+    // Save to local storage
+    const savedTemplates = JSON.parse(localStorage.getItem('savedTemplates')) || [];
+    if (!savedTemplates.find(template => template.title === newTemplate.title)) {
+        savedTemplates.push(newTemplate);
+        localStorage.setItem('savedTemplates', JSON.stringify(savedTemplates));
+        alert("Template saved successfully!");
+        displaySavedTemplates(); // Refresh the list of templates
+    } else {
+        alert("Template with this title already exists.");
+    }
 }
 
+function loadTemplate(title) {
+    const dynamicForm = document.getElementById('dynamicForm');
+    dynamicForm.innerHTML = '';
+
+    // Check if the title matches an initial template
+    let template;
+    if (title === "Quiz Template") {
+        template = quizTemplate;
+    } else if (title === "Programming Exercise Template") {
+        template = programmingExerciseTemplate;
+    } else {
+        // If it's not an initial template, check local storage for a saved template
+        const savedTemplates = JSON.parse(localStorage.getItem('savedTemplates')) || [];
+        template = savedTemplates.find(t => t.title === title);
+    }
+
+    // If a valid template is found, populate the form
+    if (template) {
+        template.inputs.forEach(input => {
+            let inputElement;
+            if (input.type === 'textarea') {
+                inputElement = document.createElement('textarea');
+                inputElement.placeholder = input.placeholder;
+            } else if (input.type === 'select') {
+                inputElement = document.createElement('select');
+                input.options.forEach(option => {
+                    const opt = document.createElement('option');
+                    opt.value = option;
+                    opt.innerText = option;
+                    inputElement.appendChild(opt);
+                });
+            } else if (input.type === 'checkbox') {
+                const wrapper = document.createElement('div');
+                input.options.forEach(option => {
+                    const label = document.createElement('label');
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.value = option;
+                    label.appendChild(checkbox);
+                    label.appendChild(document.createTextNode(option));
+                    wrapper.appendChild(label);
+                });
+                dynamicForm.appendChild(wrapper);
+                return; // Skip other elements for this input type
+            } else {
+                inputElement = document.createElement('input');
+                inputElement.type = input.type;
+                inputElement.placeholder = input.placeholder;
+            }
+
+            const wrapper = document.createElement('div');
+            wrapper.className = 'input-wrapper';
+
+            const descElement = document.createElement('span');
+            descElement.className = 'description';
+            descElement.innerText = input.description;
+
+            wrapper.appendChild(descElement);
+            wrapper.appendChild(inputElement);
+            dynamicForm.appendChild(wrapper);
+        });
+
+        document.getElementById('formTitle').value = template.title;
+    } else {
+        alert("Template not found.");
+    }
+}
+
+// Display saved templates
+function displaySavedTemplates() {
+    const savedTemplates = JSON.parse(localStorage.getItem('savedTemplates')) || [];
+    const savedTemplatesList = document.getElementById('savedTemplates');
+    savedTemplatesList.innerHTML = '';
+
+    savedTemplates.forEach(template => {
+        const listItem = document.createElement('li');
+        listItem.innerText = template.title;
+
+        const loadButton = document.createElement('button');
+        loadButton.innerText = 'Load Template';
+        loadButton.addEventListener('click', () => loadTemplate(template));
+
+        listItem.appendChild(loadButton);
+        savedTemplatesList.appendChild(listItem);
+    });
+}
+document.getElementById('saveTemplate').addEventListener('click', saveCurrentFormAsTemplate);
 
 function addTemplateButtons() {
     const quizButton = document.createElement('button');
@@ -501,9 +560,71 @@ function addTemplateButtons() {
     document.getElementById('templateContainer').appendChild(programmingButton);
 }
 
+function generatePrompt() {
+    const formTitle = document.getElementById('formTitle').value;
+    
+    let output = `Hello, I want you to follow the subject, coverage, and prompt mentioned below:\n\n`;
+
+    if (formTitle) {
+        output += `Form Title: ${formTitle}\n\n`;
+    }
+
+    const inputs = document.querySelectorAll('#dynamicForm input, #dynamicForm select, #dynamicForm textarea');
+    
+    inputs.forEach(input => {
+        const inputName = input.getAttribute('data-description') || input.placeholder || input.id || input.name;
+        let inputValue = '';
+
+        if (input.type === 'checkbox') {
+            if (input.checked) {
+                inputValue = input.value || 'Checked';
+                output += `${inputName}: ${inputValue}\n`;
+            }
+        } else if (input.type === 'radio') {
+            if (input.checked) {
+                inputValue = input.value;
+                output += `${inputName}: ${inputValue}\n`;
+            }
+        } else {
+            inputValue = input.value;
+            if (inputValue) {
+                output += `${inputName}: ${inputValue}\n`;
+            }
+        }
+    });
+
+    // Finalize 
+    output += `\n\nIf output too big for you to finish it, I will say to continue it\nPut the answers at the very bottom`;
+    
+    // Display
+    document.getElementById('output').innerText = output.trim();
+}
+
+
+function copyOutput() {
+    const outputDiv = document.getElementById('output');
+    navigator.clipboard.writeText(outputDiv.innerText).then(() => {
+        alert('Output copied to clipboard!');
+    }).catch(err => {
+        console.error('Could not copy text: ', err);
+    });
+}
+
+document.getElementById('toggleButton').addEventListener('click', function() {
+    const sidebar = document.getElementById('sidebar');
+    if (sidebar.style.display === 'none' || sidebar.style.display === '') {
+        sidebar.style.display = 'block';
+        this.innerText = 'Hide Saved Forms & Templates'; 
+    } else {
+        sidebar.style.display = 'none';
+        this.innerText = 'Show Saved Forms & Templates'; 
+    }
+});
+
 
 window.onload = function() {
     saveTemplates(); 
     displaySavedForms(); 
     addTemplateButtons(); 
+    displaySavedTemplates;
 };

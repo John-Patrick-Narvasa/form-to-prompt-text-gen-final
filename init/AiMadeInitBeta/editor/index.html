@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Creator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Form Creator</h1>
+        
+        <button id="toggleButton">Hide Saved Forms & Templates</button> <!-- Toggle button -->
+        
+        <div class="main-container">
+            <div class="sidebar" id="sidebar">
+                <h2>Saved Forms:</h2>
+                <ul id="savedForms"></ul>
+
+                <h2>Saved Templates:</h2>
+                <div id="templateContainer"></div>
+            </div>
+
+            <div class="main-content">
+                <button onclick="window.location.href='loadTemplate.html'">Load Saved Template</button>
+                <h2>Add inputs: </h2>
+                <div id="warningMessage" style="color: red; display: none;"></div>
+                <input type="text" id="formTitle" placeholder="Form Title">
+                <select id="inputType">
+                    <option value="text">Text</option>
+                    <option value="number">Number</option>
+                    <option value="email">Email</option>
+                    <option value="textarea">Textarea</option>
+                    <option value="checkbox">Checkbox</option>
+                    <option value="radio">Radio</option>
+                    
+                </select>
+                <input type="text" id="optionsInput" placeholder="Options (comma separated)" style="display:none;">
+                <input type="text" id="descriptionInput" placeholder="Description">
+                <button id="addInput">Add Input</button>
+                <button id="changeInput" style="display: none;">Change</button>
+                <button id="deselectInput" style="display: none;">Deselect</button>
+                
+                <h2>Your Form:</h2>
+                <form id="dynamicForm"></form>
+                <div class="button-container">
+                    <button id="saveForm">Save Form</button>
+                    <button id="saveTemplate">Save as Template</button>
+                </div>
+                <!-- <button id="clearForm">Clear Form</button> -->
+
+                <!-- Generate Prompt Section -->
+                <input type="button" value="Generate Prompt" onclick="generatePrompt()">
+                <p><b>OUTPUT:</b></p>
+                <div id="output" style="border: 1px solid #ccc; padding: 10px;"></div>
+                <button onclick="copyOutput()">Copy text</button>
+                <h2 id="time"></h2>         
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
