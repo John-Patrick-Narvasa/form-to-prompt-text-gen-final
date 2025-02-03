@@ -39,12 +39,15 @@ Example input/output 1, 2, ...
 Constraints
 
 
+# Finalize
 *Dont tell the answers yet until 20 minutes*
+
+*Put the answers at the very bottom part of your output*
 
 File Attachement (based on): 
 
 
-**2nd prompt.** 
+**2nd prompt (Post).** 
 Document and Summarize everything about all the pre existing context of the quizzes you have made with an emphasis to the edge cases being considered with simple examples 
 
 
@@ -195,10 +198,10 @@ Also find the techniques and patterns used in order to answer all those question
 additional prompt (for configurations)...
 
 ## Number of Items: 
-[10-30]
+- [10-30]
 ## Test Styles (at least 2): 
 [
-- Multiple choice (4 choices, 
+- Multiple choice (4 choices, more than one answers)
 - Matching Type, 
 - Answering only, 
 - Flash Cards

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soundboard</title>
+</head>
+<body>
+    <h1>Soundboard</h1>
+    <button data-sound="audio.mp3">Play 1</button>
+    <button data-sound="audio2.mp3">Play 2</button>
+    <button data-sound="audio3.mp3">Play 3</button>
+    <button data-sound="audio4.mp3">Play 4</button>
+
+    <br><br>
+    <button id="stop">Stop</button>
+
+    <script>
+        // Store the currently playing audio
+        let currentAudio = null;
+
+        document.querySelectorAll("button[data-sound]").forEach(button => {
+            button.addEventListener("click", () => {
+                const soundFile = button.getAttribute("data-sound");
+                playAudio(soundFile);
+            });
+        });
+        
+        function playAudio(soundFile) {
+            if (currentAudio) {
+                currentAudio.pause(); 
+            }
+            currentAudio = new Audio(soundFile);
+            currentAudio.play();
+        }
+
+        function stopAudio() {
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0; 
+            }
+        }
+
+
+       
+        document.getElementById("stop").addEventListener("click", stopAudio);
+    </script>
+</body>
+</html>
